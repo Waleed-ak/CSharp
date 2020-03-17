@@ -1,16 +1,16 @@
+root = true
 [*]
 charset                  = utf-8
 end_of_line              = crlf
-tab_width                = 4
 indent_style             = tab
+indent_size              = 2
 insert_final_newline     = true
 trim_trailing_whitespace = true
 
 [*.cs]
 # CSharp code style settings:
 # Link :https://gist.github.com/jmarolf/f53955b5ebc5f8ff8f3ce6ad5f64ce31
-indent_size                                                              = 2
-indent_style                                                             = space
+
 
 # Indentation
 csharp_indent_block_contents                                             = true
@@ -85,12 +85,3 @@ csharp_prefer_braces                                                     = true 
 
 csharp_preserve_single_line_statements                                   = false
 csharp_preserve_single_line_blocks                                       = true
-
-
-[*.{csproj,vcxproj,vcxproj.filters,proj,nativeproj,locpro}]
-# Csharp Project
-indent_size = 2
-
-[*.{xml,xaml,json}]
-indent_style = space
-indent_size = 2
