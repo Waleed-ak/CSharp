@@ -1,4 +1,4 @@
-namespace Tools.Class
+namespace Tools
 {
 	public static class Class<T> where T : class, new()
 	{

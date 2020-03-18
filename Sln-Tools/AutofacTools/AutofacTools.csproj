@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>preview</LangVersion>
+		<RootNamespace>Tools</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="5.1.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="**\*.cs">
+			<DependentUpon>I%(Filename).cs</DependentUpon>
+		</Compile>
+	</ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Tools.Range
+namespace Tools
 {
 	public static class Range
 	{

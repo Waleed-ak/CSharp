@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{55
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{1C7C4442-9D6B-461E-A579-95D0D63EA83B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutofacTools", "AutofacTools\AutofacTools.csproj", "{F57C7A4B-D19A-4B24-9A2A-BCBC12DF0C22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{1C7C4442-9D6B-461E-A579-95D0D63EA83B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C7C4442-9D6B-461E-A579-95D0D63EA83B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C7C4442-9D6B-461E-A579-95D0D63EA83B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F57C7A4B-D19A-4B24-9A2A-BCBC12DF0C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57C7A4B-D19A-4B24-9A2A-BCBC12DF0C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57C7A4B-D19A-4B24-9A2A-BCBC12DF0C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57C7A4B-D19A-4B24-9A2A-BCBC12DF0C22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

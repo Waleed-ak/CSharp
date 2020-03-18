@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Caching;
 
-namespace Tools.Cache
+namespace Tools
 {
 	public static class CacheObj
 	{
