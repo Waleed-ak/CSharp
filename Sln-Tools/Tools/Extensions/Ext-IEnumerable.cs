@@ -10,7 +10,7 @@ namespace Tools
 	{
 		#region Public Methods
 
-		public static M Cast<T, M>(this IEnumerable<T> input) where M : ICollection<T>, new()
+		public static M Cast<T, M>(this IEnumerable<T> input) where M : System.Collections.Generic.ICollection<T>, new()
 		{
 			var ret = new M();
 			foreach(var item in input ?? Enumerable.Empty<T>())
