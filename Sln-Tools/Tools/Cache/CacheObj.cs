@@ -51,16 +51,32 @@ namespace Tools
 
 		public static bool InCache(string key) => Mem.Contains(key);
 
-		public static TValue SetGet<TValue>(string key,Func<TValue> func,int minutes = 0)
+		public static TValue SetGet<TValue>(string key,Func<TValue> func)
 		{
 			var obj = Mem.Get(key);
 			if(obj is null)
 			{
-				if(minutes < 1)
-				{
-					minutes = 5000;
-				}
-				Mem.Set(key,obj = func(),DateTimeOffset.UtcNow.AddMinutes(minutes));
+				Mem.Set(key,obj = func(),DateTimeOffset.UtcNow.AddDays(10));
+			}
+			return (TValue)obj;
+		}
+
+		public static TValue SetGetAbsolute<TValue>(string key,Func<TValue> func,TimeSpan timeSpan)
+		{
+			var obj = Mem.Get(key);
+			if(obj is null)
+			{
+				Mem.Set(key,obj = func(),DateTimeOffset.UtcNow + timeSpan);
+			}
+			return (TValue)obj;
+		}
+
+		public static TValue SetGetSliding<TValue>(string key,Func<TValue> func,TimeSpan timeSpan)
+		{
+			var obj = Mem.Get(key);
+			if(obj is null)
+			{
+				Mem.Set(key,obj = func(),new CacheItemPolicy { SlidingExpiration = timeSpan });
 			}
 			return (TValue)obj;
 		}

@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Tools
 {
-	public class Collection<T>:ICollection<T>
+	public class Coll<T>:IColl<T>
 	{
 		#region Private Fields
 		private List<T> Items = new List<T>();
@@ -14,16 +13,17 @@ namespace Tools
 
 		#region Public Constructors
 
-		public Collection()
+		public Coll()
 		{
 		}
 
-		public Collection(IEnumerable<T> collection) => Items.AddRange(collection);
+		public Coll(IEnumerable<T> collection) => Items.AddRange(collection);
 
 		#endregion Public Constructors
 
 		#region Public Properties
 		public int Count => Items.Count;
+
 		public bool IsReadOnly => false;
 		#endregion Public Properties
 
@@ -37,9 +37,11 @@ namespace Tools
 
 		public void AddRange(IEnumerable<T> items) => Items.AddRange(items);
 
-		public ReadOnlyCollection<T> AsReadOnly() => Items.AsReadOnly();
+		public IEnumerable<T> AsReadOnly() => Items.AsReadOnly();
 
 		public void Clear() => Items.Clear();
+
+		public IColl<T> Clone() => FormatConvert.DeserializeJson<Coll<T>>(this.SerializeJson());
 
 		public bool Contains(T item) => Items.Contains(item);
 
@@ -67,7 +69,7 @@ namespace Tools
 
 		public void Remove(T item) => Items.Remove(item);
 
-		bool System.Collections.Generic.ICollection<T>.Remove(T item) => Items.Remove(item);
+		bool ICollection<T>.Remove(T item) => Items.Remove(item);
 
 		public void RemoveAt(int index) => Items.RemoveAt(index);
 

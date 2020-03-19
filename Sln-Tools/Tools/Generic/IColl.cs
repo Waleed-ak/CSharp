@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace Tools
 {
-	public interface ICollection<T>:IList<T>
+	public interface IColl<T>:IList<T>
 	{
 		#region Public Methods
 
-		ReadOnlyCollection<T> AsReadOnly();
+		IEnumerable<T> AsReadOnly();
+
+		IColl<T> Clone();
 
 		bool Exists(Func<T,bool> match);
 
