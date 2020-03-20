@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>_Dep</Token>
+  <Name />
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>DECLARE @Dep varchar(100)='#';
+SELECT @Dep =Concat('%',@Dep,'%');
+SELECT [Referencing Obj] = O.name                    
+,      [Referenced DB] = ED.referenced_database_name 
+,      [Referenced Schema]= ED.referenced_schema_name
+,      [Referenced Entity]= ED.referenced_entity_name
+FROM      sys.sql_expression_dependencies ED
+LEFT JOIN sys.objects                     O 
+	ON ED.referencing_id =O.object_id
+WHERE ED.referenced_entity_name LIKE @Dep
+	AND ED.referenced_database_name IS NOT NULL
+	AND ED.is_ambiguous = 0;</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

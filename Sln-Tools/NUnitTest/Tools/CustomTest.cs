@@ -63,6 +63,11 @@ namespace NUnitTest.Tools
 			Assert.IsTrue(val2 == 2.4M);
 			var val3 = (Price)2.4M;
 			Assert.IsTrue(val2 == val3);
+			Assert.IsTrue(val == val3);
+			Assert.IsTrue(val >= val3);
+			Assert.IsTrue(val <= val3);
+			Assert.IsFalse(val < val3);
+
 		}
 
 		#endregion Public Methods

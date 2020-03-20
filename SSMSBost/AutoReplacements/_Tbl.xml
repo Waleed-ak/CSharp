@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>_Tbl</Token>
+  <Name>Find Table</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>DECLARE @TableName varchar(50) ='#'
+DECLARE @SQL NVARCHAR(MAX)
+
+SELECT @TableName=Concat('%',@TableName,'%');
+SET @SQL = stuff((
+SELECT '
+UNION
+SELECT 
+    [DB]     =X.TABLE_CATALOG collate SQL_Latin1_General_CP1_CI_AS
+   ,[Schema] =X.TABLE_SCHEMA collate SQL_Latin1_General_CP1_CI_AS
+   ,[Table]  =X.TABLE_NAME collate SQL_Latin1_General_CP1_CI_AS
+FROM ' + quotename(NAME) + '.INFORMATION_SCHEMA.TABLES X
+	WHERE X.TABLE_NAME LIKE '''+@TableName +''''
+FROM sys.databases
+ORDER BY NAME
+FOR XML PATH('')
+,TYPE
+).value('.', 'nvarchar(max)'), 1, 8, '');
+--PRINT @SQL;
+EXECUTE sp_executeSQL              @SQL
+,                                  N'@TableName varchar(50)'
+,                     @TableName = @TableName;</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>

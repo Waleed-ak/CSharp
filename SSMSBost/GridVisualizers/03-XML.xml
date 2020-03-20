@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<GridVisualizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>03-XML</Name>
+  <FileExtension>xml</FileExtension>
+  <OpenInSsms>false</OpenInSsms>
+  <RunFileName>"C:\Coding\Notepad++\notepad++.exe"</RunFileName>
+  <RunArguments>{file}</RunArguments>
+  <CellTextEncodeMethod>None</CellTextEncodeMethod>
+</GridVisualizer>

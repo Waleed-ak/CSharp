@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-16"?>
+<AutoReplacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Token>_Col</Token>
+  <Name>List Column Name</Name>
+  <CaseSensitive>false</CaseSensitive>
+  <SelectReplacement>false</SelectReplacement>
+  <Replacement>DECLARE @TableName varchar(50) ='#'
+DECLARE @SQL NVARCHAR(MAX);
+
+SELECT @TableName=Concat('%',@TableName,'%');
+SELECT [DB]=X.TABLE_CATALOG   
+,      [Schema]=X.TABLE_SCHEMA
+,      [Table]=X.TABLE_NAME   
+,      [Column]=X.COLUMN_NAME 
+,      [Type]=X.DATA_TYPE     
+,      *                      
+FROM INFORMATION_SCHEMA.COLUMNS X
+WHERE TABLE_NAME LIKE @TableName
+ORDER BY X.TABLE_NAME
+,        X.TABLE_SCHEMA
+,        X.COLUMN_NAME;</Replacement>
+  <CursorPositionMarker>#</CursorPositionMarker>
+</AutoReplacement>
