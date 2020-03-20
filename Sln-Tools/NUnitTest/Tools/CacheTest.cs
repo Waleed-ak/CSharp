@@ -27,6 +27,21 @@ namespace NUnitTest.Tools
 			val = (string)CacheObj.Get("Key");
 			Assert.AreEqual(val,"Value");
 		}
+
+		[Test]
+		public void SetGetAbsolute()
+		{
+			var val = CacheObj.SetGetAbsolute("Key",() => "Value",TimeSpan.FromSeconds(2));
+
+			Thread.Sleep(1000);
+			val = (string)CacheObj.Get("Key");
+			Assert.AreEqual(val,"Value");
+
+			Thread.Sleep(1001);
+			val = (string)CacheObj.Get("Key");
+			Assert.AreNotEqual(val,"Value");
+		}
+
 		[Test]
 		public void SetGetSliding()
 		{
@@ -47,19 +62,6 @@ namespace NUnitTest.Tools
 			Thread.Sleep(1000);
 			val = (string)CacheObj.Get("Key");
 			Assert.AreEqual(val,"Value");
-		}
-		[Test]
-		public void SetGetAbsolute()
-		{
-			var val = CacheObj.SetGetAbsolute("Key",() => "Value",TimeSpan.FromSeconds(2));
-
-			Thread.Sleep(1000);
-			val = (string)CacheObj.Get("Key");
-			Assert.AreEqual(val,"Value");
-
-			Thread.Sleep(1001);
-			val = (string)CacheObj.Get("Key");
-			Assert.AreNotEqual(val,"Value");
 		}
 
 		#endregion Public Methods

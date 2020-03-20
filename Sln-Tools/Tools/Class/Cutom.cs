@@ -18,7 +18,6 @@ namespace Tools
 
 		#region Public Methods
 
-
 		public static implicit operator TValue(Custom<TCustom,TValue> custom) => custom.Value;
 
 		public static TCustom operator -(Custom<TCustom,TValue> l,TCustom r)

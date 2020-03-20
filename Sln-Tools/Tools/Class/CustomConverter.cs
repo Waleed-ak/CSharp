@@ -9,9 +9,6 @@ namespace Tools
 	{
 		#region Public Methods
 
-
-
-		#endregion Public Methods
 		public override TCustom ReadJson(JsonReader reader,Type objectType,TCustom existingValue,bool hasExistingValue,JsonSerializer serializer)
 		{
 			var val = (TValue)Convert.ChangeType(reader.Value,typeof(TValue));
@@ -19,5 +16,7 @@ namespace Tools
 		}
 
 		public override void WriteJson(JsonWriter writer,TCustom value,JsonSerializer serializer) => writer.WriteValue(value.Value);
+
+		#endregion Public Methods
 	}
 }

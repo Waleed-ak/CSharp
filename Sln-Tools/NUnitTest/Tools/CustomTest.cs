@@ -8,15 +8,15 @@ namespace NUnitTest.Tools
 	[JsonConverter(typeof(CustomConverter<Price,decimal>))]
 	public class Price:Custom<Price,decimal>
 	{
+		#region Public Constructors
+
 		public Price(decimal value = 0) : base(value)
 		{
 		}
+
 		public Price()
 		{
-
 		}
-		#region Public Constructors
-
 
 		#endregion Public Constructors
 
@@ -42,6 +42,16 @@ namespace NUnitTest.Tools
 		}
 
 		[Test]
+		public void PriceJson()
+		{
+			var val = new Price(2.4M);
+			var v2 = FormatConvert.DeserializeJson<Price>(val.SerializeJson());
+			Assert.AreEqual(val.Value,v2.Value);
+			Console.WriteLine(val.SerializeJson());
+			Console.WriteLine(val.SerializeXml(true));
+		}
+
+		[Test]
 		public void PriceTest()
 		{
 			var val = new Price(2.4M);
@@ -53,16 +63,6 @@ namespace NUnitTest.Tools
 			Assert.IsTrue(val2 == 2.4M);
 			var val3 = (Price)2.4M;
 			Assert.IsTrue(val2 == val3);
-		}
-
-		[Test]
-		public void PriceJson()
-		{
-			var val = new Price(2.4M);
-			var v2 = FormatConvert.DeserializeJson<Price>(val.SerializeJson());
-			Assert.AreEqual(val.Value,v2.Value);
-			Console.WriteLine(val.SerializeJson());
-			Console.WriteLine(val.SerializeXml(true));
 		}
 
 		#endregion Public Methods
