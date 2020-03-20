@@ -13,9 +13,4 @@
 			<DependentUpon>I%(Filename).cs</DependentUpon>
 		</Compile>
 	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="Core\ClientApi.cs">
-	    <DependentUpon>I%(Filename).cs</DependentUpon>
-	  </Compile>
-	</ItemGroup>
 </Project>
