@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools.Autofac", "Tools.Auto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools.ClientAPI", "Tools.ClientAPI\Tools.ClientAPI.csproj", "{C5BB146C-8ACE-442A-B3B3-70A3DDDFE01B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools.Storage", "Tools.Storage\Tools.Storage.csproj", "{C373EAB2-F276-46A8-A90B-1700CE53B5AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{C5BB146C-8ACE-442A-B3B3-70A3DDDFE01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5BB146C-8ACE-442A-B3B3-70A3DDDFE01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5BB146C-8ACE-442A-B3B3-70A3DDDFE01B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C373EAB2-F276-46A8-A90B-1700CE53B5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C373EAB2-F276-46A8-A90B-1700CE53B5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C373EAB2-F276-46A8-A90B-1700CE53B5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C373EAB2-F276-46A8-A90B-1700CE53B5AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{18CB8FEF-01D0-4343-B781-980A3E51E1CA} = {7B97D36D-D67D-40FB-B6DC-EDD82D467303}
 		{CE66D29F-EC81-4AB5-B887-BEB7329559C3} = {289A9000-3641-4E5B-91BD-ABBCEB1B42B8}
 		{C5BB146C-8ACE-442A-B3B3-70A3DDDFE01B} = {289A9000-3641-4E5B-91BD-ABBCEB1B42B8}
+		{C373EAB2-F276-46A8-A90B-1700CE53B5AA} = {289A9000-3641-4E5B-91BD-ABBCEB1B42B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {059FA2EB-824F-4779-B87B-9CA64273BE50}
