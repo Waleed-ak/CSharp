@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>preview</LangVersion>
+		<RootNamespace>Tools</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Tools.Autofac\Tools.Autofac.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="System.ServiceModel" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="**\*.cs">
+			<DependentUpon>I%(Filename).cs</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Core\BaseIParameterInspector.cs">
+	    <DependentUpon>I%(Filename).cs</DependentUpon>
+	  </Compile>
+	  <Compile Update="Core\HttpBaseErrorHandler.cs">
+	    <DependentUpon>I%(Filename).cs</DependentUpon>
+	  </Compile>
+	  <Compile Update="Core\OperationBehaviourAttribute.cs">
+	    <DependentUpon>I%(Filename).cs</DependentUpon>
+	  </Compile>
+	  <Compile Update="Core\ServiceOperationAttribute.cs">
+	    <DependentUpon>I%(Filename).cs</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+</Project>
