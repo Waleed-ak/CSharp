@@ -5,7 +5,7 @@ using System.Runtime.Caching;
 
 namespace Tools
 {
-	public static class CacheObj
+  public static class CacheObj
 	{
 		#region Private Fields
 		private static readonly MemoryCache Mem = new MemoryCache("CacheObj");
@@ -51,36 +51,29 @@ namespace Tools
 
 		public static bool InCache(string key) => Mem.Contains(key);
 
-		public static TValue SetGet<TValue>(string key,Func<TValue> func)
+		public static TValue Set<TValue>(string key,TValue val,int minutes = 0)
 		{
-			var obj = Mem.Get(key);
-			if(obj is null)
-			{
-				Mem.Set(key,obj = func(),DateTimeOffset.UtcNow.AddDays(10));
-			}
-			return (TValue)obj;
+			TValue obj;
+			Mem.Set(key,obj = val,GetTimeOffset(minutes));
+			return obj;
 		}
 
-		public static TValue SetGetAbsolute<TValue>(string key,Func<TValue> func,TimeSpan timeSpan)
+		public static TValue SetGet<TValue>(string key,Func<TValue> func,int minutes = 0)
 		{
 			var obj = Mem.Get(key);
 			if(obj is null)
 			{
-				Mem.Set(key,obj = func(),DateTimeOffset.UtcNow + timeSpan);
-			}
-			return (TValue)obj;
-		}
-
-		public static TValue SetGetSliding<TValue>(string key,Func<TValue> func,TimeSpan timeSpan)
-		{
-			var obj = Mem.Get(key);
-			if(obj is null)
-			{
-				Mem.Set(key,obj = func(),new CacheItemPolicy { SlidingExpiration = timeSpan });
+				Mem.Set(key,obj = func(),GetTimeOffset(minutes));
 			}
 			return (TValue)obj;
 		}
 
 		#endregion Public Methods
+
+		#region Private Methods
+
+		private static DateTimeOffset GetTimeOffset(int minutes) => DateTimeOffset.UtcNow.AddMinutes(minutes < 1 ? 5000 : minutes);
+
+		#endregion Private Methods
 	}
 }

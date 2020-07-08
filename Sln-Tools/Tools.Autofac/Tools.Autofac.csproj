@@ -5,7 +5,7 @@
 		<RootNamespace>Tools</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="5.1.2" />
+		<PackageReference Include="Autofac" Version="5.2.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Update="**\*.cs">
