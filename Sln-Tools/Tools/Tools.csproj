@@ -16,4 +16,9 @@
 			<DependentUpon>I%(Filename).cs</DependentUpon>
 		</Compile>
 	</ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Copy\CopyExt.cs">
+	    <DependentUpon>I%(Filename).cs</DependentUpon>
+	  </Compile>
+	</ItemGroup>
 </Project>
