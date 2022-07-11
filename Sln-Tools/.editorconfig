@@ -1,16 +1,16 @@
-root = true
 [*]
 charset                  = utf-8
 end_of_line              = crlf
+tab_width                = 2
 indent_style             = tab
-indent_size              = 2
 insert_final_newline     = true
 trim_trailing_whitespace = true
 
 [*.cs]
 # CSharp code style settings:
 # Link :https://gist.github.com/jmarolf/f53955b5ebc5f8ff8f3ce6ad5f64ce31
-
+indent_size                                                              = 2
+indent_style                                                             = space
 
 # Indentation
 csharp_indent_block_contents                                             = true
@@ -61,10 +61,6 @@ csharp_style_throw_expression                                            = true 
 csharp_style_var_for_built_in_types                                      = true : suggestion
 csharp_style_var_when_type_is_apparent                                   = true : suggestion
 
-#Wrapping Options
-csharp_block_on_single_line                                              = true
-csharp_statements_and_member_declarations_on_same_line                   = true
-
 
 dotnet_sort_system_directives_first                                      = true
 dotnet_style_coalesce_expression                                         = true : suggestion
@@ -85,3 +81,33 @@ csharp_prefer_braces                                                     = true 
 
 csharp_preserve_single_line_statements                                   = false
 csharp_preserve_single_line_blocks                                       = true
+
+#+Naming
+
+# 1- Instance fields are PascalCase and start with _
+dotnet_naming_rule.instance_fields_should_be_camel_case.severity         = suggestion
+dotnet_naming_rule.instance_fields_should_be_camel_case.symbols          = instance_fields
+dotnet_naming_rule.instance_fields_should_be_camel_case.style            = instance_field_style
+dotnet_naming_symbols.instance_fields.applicable_kinds                   = field
+dotnet_naming_style.instance_field_style.capitalization                  = pascal_case
+dotnet_naming_style.instance_field_style.required_prefix                 = _
+
+
+# 2- Enums are PascalCase and start with En
+dotnet_naming_rule.enums_start_with_en.severity                          = suggestion
+dotnet_naming_rule.enums_start_with_en.symbols                           = instance_enums
+dotnet_naming_rule.enums_start_with_en.style                             = instance_enums_style
+dotnet_naming_symbols.instance_enums.applicable_kinds                    = enum
+dotnet_naming_style.instance_enums_style.capitalization                  = pascal_case
+dotnet_naming_style.instance_enums_style.required_prefix                 = En
+#-Naming
+
+dotnet_diagnostic.CA1031.severity=silent
+
+
+[*.{csproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj}]
+# Csharp Project
+indent_size = 2
+
+[*.xml]
+indent_style = space

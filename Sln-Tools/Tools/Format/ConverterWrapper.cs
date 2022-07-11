@@ -8,7 +8,7 @@ namespace Tools
 	internal static class ConverterWrapper
 	{
 		#region Private Fields
-		private static readonly JsonSerializerSettings _JsonSerializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore,DefaultValueHandling = DefaultValueHandling.Ignore };
+		private static readonly JsonSerializerSettings _JsonSerializerSettings = new() { NullValueHandling = NullValueHandling.Ignore,DefaultValueHandling = DefaultValueHandling.Ignore };
 		#endregion Private Fields
 
 		#region Public Methods
